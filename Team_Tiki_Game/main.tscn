@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://bey6n7trf6dv6"]
+
+[ext_resource type="Script" uid="uid://bvuh4do826ugp" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" path="res://bedroom.tscn" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cvfkp5p3orohv" path="res://CutsceneHandler.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bsxkguy3x4hdk" path="res://inventory_menu.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://c7wx1yk6olg71" path="res://id.tscn" id="5_7mycd"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_h2yge")
+
+[node name="Bedroom" parent="." instance=ExtResource("2_lquwl")]
+
+[node name="CutsceneHandler" parent="." instance=ExtResource("4_1bvp3")]
+
+[node name="inventory-menu" parent="." instance=ExtResource("4_lquwl")]
+
+[node name="ID" parent="." instance=ExtResource("5_7mycd")]
+position = Vector2(681.00006, 487.00003)

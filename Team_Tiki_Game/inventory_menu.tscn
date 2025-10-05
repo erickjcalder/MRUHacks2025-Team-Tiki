@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsxkguy3x4hdk"]
+
+[ext_resource type="Script" uid="uid://bbx845ciruotp" path="res://button.gd" id="1_1yeyp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nxc48"]
+font_size = 50
+
+[node name="inventory-menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 964.0
+offset_top = -3.0
+offset_right = 1243.0
+offset_bottom = 80.0
+text = "Inventory"
+label_settings = SubResource("LabelSettings_nxc48")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 973.0
+offset_top = 74.0
+offset_right = 1198.0
+offset_bottom = 124.0
+script = ExtResource("1_1yeyp")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 973.0
+offset_top = 149.0
+offset_right = 1198.0
+offset_bottom = 199.0
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 974.0
+offset_top = 223.0
+offset_right = 1199.0
+offset_bottom = 273.0
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 974.0
+offset_top = 298.0
+offset_right = 1199.0
+offset_bottom = 348.0
+
+[node name="Button5" type="Button" parent="."]
+layout_mode = 0
+offset_left = 974.0
+offset_top = 373.0
+offset_right = 1199.0
+offset_bottom = 423.0
+
+[node name="Button6" type="Button" parent="."]
+layout_mode = 0
+offset_left = 974.0
+offset_top = 448.0
+offset_right = 1199.0
+offset_bottom = 498.0

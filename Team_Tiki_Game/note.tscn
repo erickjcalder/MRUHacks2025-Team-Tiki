@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://knd3ud2ii1ky"]
+
+[ext_resource type="Script" uid="uid://blhorjcq3u60v" path="res://note.gd" id="1_wn01w"]
+[ext_resource type="Texture2D" uid="uid://d3ckkbpi5w6bq" path="res://art/paper.png" id="2_lyp5m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eo7dk"]
+radius = 1.3746722
+
+[node name="note" type="Area2D"]
+position = Vector2(103, 63)
+script = ExtResource("1_wn01w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lyp5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.75)
+scale = Vector2(22.287539, -13.509274)
+shape = SubResource("CircleShape2D_eo7dk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

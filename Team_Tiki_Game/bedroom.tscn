@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://br5yyfpmlhdax"]
+
+[ext_resource type="Texture2D" uid="uid://dnjoy27k0js6p" path="res://background/bedroom.png" id="1_iw0c1"]
+[ext_resource type="PackedScene" uid="uid://dor0uwelkmb2m" path="res://player.tscn" id="2_kpde0"]
+[ext_resource type="Script" path="res://bedroom_to_lr.gd" id="3_e18cj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e18cj"]
+size = Vector2(813, 325)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ui2oe"]
+size = Vector2(87.5, 80.5)
+
+[node name="Bedroom" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_iw0c1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="invisible_boundary" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(396.5, 152.5)
+shape = SubResource("RectangleShape2D_e18cj")
+
+[node name="bedroom_to_livingroom" type="Area2D" parent="."]
+script = ExtResource("3_e18cj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bedroom_to_livingroom"]
+position = Vector2(378, 755)
+shape = SubResource("RectangleShape2D_ui2oe")
+
+[node name="player" parent="." instance=ExtResource("2_kpde0")]
+position = Vector2(382, 358)
+
+[connection signal="body_entered" from="bedroom_to_livingroom" to="bedroom_to_livingroom" method="_on_body_entered"]
+[connection signal="body_exited" from="bedroom_to_livingroom" to="bedroom_to_livingroom" method="_on_body_exited"]
