@@ -1,10 +1,15 @@
-[gd_scene load_steps=11 format=4 uid="uid://dpynsvscyppj"]
+[gd_scene load_steps=18 format=4 uid="uid://dpynsvscyppj"]
 
+[ext_resource type="Script" uid="uid://okcdea0a833o" path="res://throne_room.gd" id="1_10qml"]
 [ext_resource type="Texture2D" uid="uid://cwpsf3yxrqgs7" path="res://background/throne_room.png" id="1_potlf"]
 [ext_resource type="PackedScene" uid="uid://dor0uwelkmb2m" path="res://player.tscn" id="2_flapw"]
 [ext_resource type="Texture2D" uid="uid://choq8iurqk7le" path="res://tiles/throne-removebg-preview.png" id="2_gy13p"]
 [ext_resource type="Script" uid="uid://bicqlq1kxa55a" path="res://secret_to_cemetery.gd" id="4_gy13p"]
+[ext_resource type="Texture2D" uid="uid://r70eteku53oh" path="res://tiles/animatedcastledoors.png" id="5_08fcd"]
 [ext_resource type="Script" uid="uid://doyko37yhqepl" path="res://secret_to_living_room.gd" id="5_10qml"]
+[ext_resource type="PackedScene" uid="uid://dyc1ekano1dbg" path="res://key.tscn" id="7_2of6u"]
+[ext_resource type="PackedScene" uid="uid://cvfkp5p3orohv" path="res://CutsceneHandler.tscn" id="7_y5knk"]
+[ext_resource type="PackedScene" uid="uid://bsxkguy3x4hdk" path="res://inventory_menu.tscn" id="8_2of6u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10qml"]
 texture = ExtResource("2_gy13p")
@@ -950,6 +955,104 @@ sources/1 = SubResource("TileSetAtlasSource_10qml")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flapw"]
 size = Vector2(813, 295)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_espvv"]
+texture = ExtResource("5_08fcd")
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+9:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+23:1/0 = 0
+0:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+22:2/0 = 0
+23:2/0 = 0
+0:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+22:3/0 = 0
+23:3/0 = 0
+0:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+22:4/0 = 0
+23:4/0 = 0
+0:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+22:5/0 = 0
+23:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vvbhk"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_espvv")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2a8l"]
 size = Vector2(73.5, 84)
 
@@ -957,6 +1060,7 @@ size = Vector2(73.5, 84)
 size = Vector2(78.75, 85)
 
 [node name="throne_room" type="Node2D"]
+script = ExtResource("1_10qml")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -977,12 +1081,24 @@ shape = SubResource("RectangleShape2D_flapw")
 [node name="player" parent="." instance=ExtResource("2_flapw")]
 position = Vector2(374.00003, 592)
 
+[node name="door" type="TileMapLayer" parent="."]
+position = Vector2(-343, -233)
+scale = Vector2(1.5, 1.5)
+tile_map_data = PackedByteArray("AAARABwAAAAHAAEAAAAsAB0AAAAEAAEAAAAsAB4AAAAEAAIAAAAsAB8AAAAEAAMAAAAsACAAAAAEAAQAAAAsACEAAAAEAAUAAAAtAB0AAAAFAAEAAAAtAB4AAAAFAAIAAAAtAB8AAAAFAAMAAAAtACAAAAAFAAQAAAAtACEAAAAFAAUAAAAuAB0AAAAGAAEAAAAuAB4AAAAGAAIAAAAuAB8AAAAGAAMAAAAuACAAAAAGAAQAAAAuACEAAAAGAAUAAAAvAB0AAAAHAAEAAAAvAB4AAAAHAAIAAAAvAB8AAAAHAAMAAAAvACAAAAAHAAQAAAAvACEAAAAHAAUAAAA=")
+tile_set = SubResource("TileSet_vvbhk")
+
 [node name="throne_to_cemetery" type="Area2D" parent="."]
 script = ExtResource("4_gy13p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="throne_to_cemetery"]
 position = Vector2(761, 541)
 shape = SubResource("RectangleShape2D_w2a8l")
+
+[node name="door3" type="TileMapLayer" parent="."]
+position = Vector2(-330, -229)
+scale = Vector2(1.5, 1.5)
+tile_map_data = PackedByteArray("AAARABwAAAAHAAEAAAAcACYAAAAEAAEAAAAcACcAAAAEAAIAAAAcACgAAAAEAAMAAAAcACkAAAAEAAQAAAAcACoAAAAEAAUAAAAdACYAAAAFAAEAAAAdACcAAAAFAAIAAAAdACgAAAAFAAMAAAAdACkAAAAFAAQAAAAdACoAAAAFAAUAAAAeACYAAAAGAAEAAAAeACcAAAAGAAIAAAAeACgAAAAGAAMAAAAeACkAAAAGAAQAAAAeACoAAAAGAAUAAAAfACYAAAAHAAEAAAAfACcAAAAHAAIAAAAfACgAAAAHAAMAAAAfACkAAAAHAAQAAAAfACoAAAAHAAUAAAA=")
+tile_set = SubResource("TileSet_vvbhk")
 
 [node name="secret_to_livingRoom" type="Area2D" parent="."]
 script = ExtResource("5_10qml")
@@ -991,8 +1107,16 @@ script = ExtResource("5_10qml")
 position = Vector2(389, 761)
 shape = SubResource("RectangleShape2D_y5knk")
 
+[node name="CutsceneHandler" parent="." instance=ExtResource("7_y5knk")]
+
+[node name="inventory-menu" parent="." instance=ExtResource("8_2of6u")]
+
+[node name="Key" parent="." instance=ExtResource("7_2of6u")]
+position = Vector2(202, 394)
+
 [connection signal="body_entered" from="throne_to_cemetery" to="throne_to_cemetery" method="_on_body_entered"]
 [connection signal="body_exited" from="throne_to_cemetery" to="throne_to_cemetery" method="_on_body_exited"]
 [connection signal="body_shape_entered" from="throne_to_cemetery" to="throne_to_cemetery" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="secret_to_livingRoom" to="secret_to_livingRoom" method="_on_body_entered"]
 [connection signal="body_exited" from="secret_to_livingRoom" to="secret_to_livingRoom" method="_on_body_exited"]
+[connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d12xwu43a7r6v"]
+
+[ext_resource type="Script" uid="uid://clouclge5n4gn" path="res://gravestone.gd" id="1_q0hwh"]
+[ext_resource type="Texture2D" uid="uid://by0hjr7c64lw0" path="res://art/gravestone.png" id="2_q0hwh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxpwv"]
+size = Vector2(32.913044, 34.782608)
+
+[node name="Gravestone" type="Area2D"]
+scale = Vector2(1.15, 1.15)
+script = ExtResource("1_q0hwh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_q0hwh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.543478, 0.86956584)
+shape = SubResource("RectangleShape2D_wxpwv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bolpquh8u264o"]
+
+[ext_resource type="Script" uid="uid://c2yiwwnhk57ou" path="res://poster.gd" id="1_ubgtn"]
+[ext_resource type="Texture2D" uid="uid://deno28ye5m2r8" path="res://art/Poster.png" id="2_ubgtn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxpwv"]
+size = Vector2(33.04348, 25.217392)
+
+[node name="Poster" type="Area2D"]
+scale = Vector2(1.15, 1.15)
+script = ExtResource("1_ubgtn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_ubgtn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.8695651, 0.43478233)
+shape = SubResource("RectangleShape2D_wxpwv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

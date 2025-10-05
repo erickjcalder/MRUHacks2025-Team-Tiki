@@ -1,18 +1,123 @@
-[gd_scene load_steps=8 format=3 uid="uid://cc3t8if7f40py"]
+[gd_scene load_steps=16 format=4 uid="uid://cc3t8if7f40py"]
 
+[ext_resource type="Script" uid="uid://dh3qgovxb7sn6" path="res://living_room.gd" id="1_jm2cs"]
 [ext_resource type="Texture2D" uid="uid://3x2r2gana8yt" path="res://background/living_room.png" id="1_xal5j"]
 [ext_resource type="Script" uid="uid://dkhsmo8ljxld0" path="res://livingRoom_to_bedroom.gd" id="2_efgsu"]
 [ext_resource type="Script" uid="uid://em7u5cq7yrqt" path="res://livingRoom_to_throne_room.gd" id="3_378y4"]
+[ext_resource type="Texture2D" uid="uid://r70eteku53oh" path="res://tiles/animatedcastledoors.png" id="3_sigte"]
 [ext_resource type="Script" uid="uid://20di8xjyxle2" path="res://living_room_to_secret_room.gd" id="4_bxp2c"]
 [ext_resource type="PackedScene" uid="uid://dor0uwelkmb2m" path="res://player.tscn" id="5_jeppt"]
+[ext_resource type="PackedScene" uid="uid://cvfkp5p3orohv" path="res://CutsceneHandler.tscn" id="6_mjt0p"]
+[ext_resource type="PackedScene" uid="uid://bsxkguy3x4hdk" path="res://inventory_menu.tscn" id="8_amcw0"]
+[ext_resource type="PackedScene" uid="uid://c2l8k8dd00iu2" path="res://cookie.tscn" id="9_jm2cs"]
+[ext_resource type="PackedScene" uid="uid://bolpquh8u264o" path="res://poster.tscn" id="10_amcw0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_378y4"]
 size = Vector2(813, 291.5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sigte"]
+texture = ExtResource("3_sigte")
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+9:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+23:1/0 = 0
+0:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+22:2/0 = 0
+23:2/0 = 0
+0:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+22:3/0 = 0
+23:3/0 = 0
+0:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+22:4/0 = 0
+23:4/0 = 0
+0:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+22:5/0 = 0
+23:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_parq5"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_sigte")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxp2c"]
 size = Vector2(87.5, 80.5)
 
 [node name="LivingRoom" type="Node2D"]
+script = ExtResource("1_jm2cs")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -25,6 +130,12 @@ texture = ExtResource("1_xal5j")
 position = Vector2(398, 148.25)
 shape = SubResource("RectangleShape2D_378y4")
 
+[node name="door" type="TileMapLayer" parent="."]
+position = Vector2(-340, -242)
+scale = Vector2(1.5, 1.5)
+tile_map_data = PackedByteArray("AAAOACAAAAAEAAUAAAAOAB8AAAAEAAQAAAAOAB4AAAAEAAMAAAAOAB0AAAAEAAIAAAAOABwAAAAEAAEAAAAPACAAAAAFAAUAAAAPAB8AAAAFAAQAAAAPAB4AAAAFAAMAAAAPAB0AAAAFAAIAAAAPABwAAAAFAAEAAAAQACAAAAAGAAUAAAAQAB8AAAAGAAQAAAAQAB4AAAAGAAMAAAAQAB0AAAAGAAIAAAAQABwAAAAGAAEAAAARACAAAAAHAAUAAAARAB8AAAAHAAQAAAARAB4AAAAHAAMAAAARAB0AAAAHAAIAAAARABwAAAAHAAEAAAA=")
+tile_set = SubResource("TileSet_parq5")
+
 [node name="lvingRoom_to_bedroom" type="Area2D" parent="."]
 script = ExtResource("2_efgsu")
 
@@ -32,12 +143,24 @@ script = ExtResource("2_efgsu")
 position = Vector2(45, 508)
 shape = SubResource("RectangleShape2D_bxp2c")
 
+[node name="door2" type="TileMapLayer" parent="."]
+position = Vector2(-346, -242)
+scale = Vector2(1.5, 1.5)
+tile_map_data = PackedByteArray("AAARABwAAAAHAAEAAAAsABkAAAAEAAEAAAAsABoAAAAEAAIAAAAsABsAAAAEAAMAAAAsABwAAAAEAAQAAAAsAB0AAAAEAAUAAAAtABkAAAAFAAEAAAAtABoAAAAFAAIAAAAtABsAAAAFAAMAAAAtABwAAAAFAAQAAAAtAB0AAAAFAAUAAAAuABkAAAAGAAEAAAAuABoAAAAGAAIAAAAuABsAAAAGAAMAAAAuABwAAAAGAAQAAAAuAB0AAAAGAAUAAAAvABkAAAAHAAEAAAAvABoAAAAHAAIAAAAvABsAAAAHAAMAAAAvABwAAAAHAAQAAAAvAB0AAAAHAAUAAAA=")
+tile_set = SubResource("TileSet_parq5")
+
 [node name="LivingRoom_to_throneRoom" type="Area2D" parent="."]
 script = ExtResource("3_378y4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LivingRoom_to_throneRoom"]
 position = Vector2(756, 436)
 shape = SubResource("RectangleShape2D_bxp2c")
+
+[node name="door3" type="TileMapLayer" parent="."]
+position = Vector2(-343, -233)
+scale = Vector2(1.5, 1.5)
+tile_map_data = PackedByteArray("AAARABwAAAAHAAEAAAAsACYAAAAEAAEAAAAsACcAAAAEAAIAAAAsACgAAAAEAAMAAAAsACkAAAAEAAQAAAAsACoAAAAEAAUAAAAtACYAAAAFAAEAAAAtACcAAAAFAAIAAAAtACgAAAAFAAMAAAAtACkAAAAFAAQAAAAtACoAAAAFAAUAAAAuACYAAAAGAAEAAAAuACcAAAAGAAIAAAAuACgAAAAGAAMAAAAuACkAAAAGAAQAAAAuACoAAAAGAAUAAAAvACYAAAAHAAEAAAAvACcAAAAHAAIAAAAvACgAAAAHAAMAAAAvACkAAAAHAAQAAAAvACoAAAAHAAUAAAA=")
+tile_set = SubResource("TileSet_parq5")
 
 [node name="livingRoom_to_secretRoom" type="Area2D" parent="."]
 script = ExtResource("4_bxp2c")
@@ -47,6 +170,16 @@ position = Vector2(759, 758)
 shape = SubResource("RectangleShape2D_bxp2c")
 
 [node name="player" parent="." instance=ExtResource("5_jeppt")]
+
+[node name="inventory-menu" parent="." instance=ExtResource("8_amcw0")]
+
+[node name="CutsceneHandler" parent="." instance=ExtResource("6_mjt0p")]
+
+[node name="Cookie" parent="." instance=ExtResource("9_jm2cs")]
+position = Vector2(201, 376)
+
+[node name="Poster" parent="." instance=ExtResource("10_amcw0")]
+position = Vector2(553, 525)
 
 [connection signal="body_entered" from="lvingRoom_to_bedroom" to="lvingRoom_to_bedroom" method="_on_body_entered"]
 [connection signal="body_exited" from="lvingRoom_to_bedroom" to="lvingRoom_to_bedroom" method="_on_body_exited"]

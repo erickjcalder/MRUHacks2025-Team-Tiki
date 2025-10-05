@@ -1,11 +1,9 @@
-extends Node
+extends Node2D
 
 var cutscene_active
-var OPENING_CUTSCENE = 0
-var OBTAINED_ID = 6
+var OBTAINED_DRESS = 3
 
-# Only needed if item is in room
-@onready var id = $ID
+@onready var dress = $Dress
 
 # Always needed because of how this disaster works
 @onready var id_button = $"inventory-menu/Button"
@@ -26,22 +24,31 @@ func load_from_file():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	cutscene_active = true
-	save_to_file("")
-	$CutsceneHandler.SceneChanger(OPENING_CUTSCENE)
-	$Bedroom/player.ToggleMovement(false)
-	id.connect("id_picked_up", Callable(self, "_on_id_picked_up"))
+	var Items = load_from_file()
+	if "ID" in Items:
+		id_button.text = "ID"
+	if "poster" in Items:
+		poster_button.text = "Signed Poster"
+	if "key" in Items:
+		key_button.text = "Gambler's Key"
+	if "gravestone" in Items:
+		gravestone_button.text = "Gravestone"
+	if "dress" in Items:
+		remove_child(dress)
+		dress_button.text = "Old Dress"
+	if "cookie" in Items:
+		cookie_button.text = "Homemade Cookie"
+	dress.connect("dress_picked_up", Callable(self, "_on_dress_picked_up"))
+	
 
 # Called every frame. 'ddelta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if cutscene_active:
-		$Bedroom/player.ToggleMovement($CutsceneHandler.CutsceneCheck())	
-
-func _on_id_picked_up():
-	$CutsceneHandler.SceneChanger(OBTAINED_ID)
-	$Bedroom/player.ToggleMovement(false)
-	id_button.text = "ID"
+	if !$CutsceneHandler.TextActive:
+		$player.ToggleMovement(true)
+		
+func _on_dress_picked_up():
+	$CutsceneHandler.SceneChanger(OBTAINED_DRESS)
+	$player.ToggleMovement(false)
+	dress_button.text = "Old Dress"
 	var CurrentItems = load_from_file()
-	save_to_file(CurrentItems + "\nID")
-	
-	
+	save_to_file(CurrentItems + "\ndress")			
