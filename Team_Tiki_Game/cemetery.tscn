@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://e6wv7vcao052"]
+[gd_scene load_steps=23 format=4 uid="uid://e6wv7vcao052"]
 
 [ext_resource type="Texture2D" uid="uid://c4u25hfvbfbno" path="res://background/cemetery.png" id="1_206py"]
 [ext_resource type="Script" uid="uid://b7734sbj88htw" path="res://cemetery.gd" id="1_ovaco"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bsfhfqi2icds0" path="res://tiles/grave.png" id="6_ovaco"]
 [ext_resource type="Script" uid="uid://bgck7bd3x8oms" path="res://cemetery_to_room1.gd" id="7_vt2ep"]
 [ext_resource type="PackedScene" uid="uid://cvfkp5p3orohv" path="res://CutsceneHandler.tscn" id="9_7tltb"]
+[ext_resource type="Script" uid="uid://b638smapqiix" path="res://cem_to_tr.gd" id="9_tab8i"]
 [ext_resource type="PackedScene" uid="uid://bsxkguy3x4hdk" path="res://inventory_menu.tscn" id="10_lxqmm"]
 [ext_resource type="PackedScene" uid="uid://d12xwu43a7r6v" path="res://gravestone.tscn" id="11_lxqmm"]
 [ext_resource type="Texture2D" uid="uid://r70eteku53oh" path="res://tiles/animatedcastledoors.png" id="12_gy7qp"]
@@ -314,7 +315,7 @@ position = Vector2(43.75, 483.5)
 shape = SubResource("RectangleShape2D_5jdao")
 
 [node name="Area2D2" type="Area2D" parent="."]
-script = ExtResource("7_vt2ep")
+script = ExtResource("9_tab8i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(398, 712)
