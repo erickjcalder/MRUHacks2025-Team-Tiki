@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://cc3t8if7f40py"]
+
+[ext_resource type="Texture2D" uid="uid://3x2r2gana8yt" path="res://background/living_room.png" id="1_xal5j"]
+[ext_resource type="Script" uid="uid://dkhsmo8ljxld0" path="res://livingRoom_to_bedroom.gd" id="2_efgsu"]
+[ext_resource type="Script" uid="uid://em7u5cq7yrqt" path="res://livingRoom_to_throne_room.gd" id="3_378y4"]
+[ext_resource type="Script" uid="uid://20di8xjyxle2" path="res://living_room_to_secret_room.gd" id="4_bxp2c"]
+[ext_resource type="PackedScene" uid="uid://dor0uwelkmb2m" path="res://player.tscn" id="5_jeppt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_378y4"]
+size = Vector2(813, 291.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxp2c"]
+size = Vector2(87.5, 80.5)
+
+[node name="LivingRoom" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_xal5j")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="invisible_boundary" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(398, 148.25)
+shape = SubResource("RectangleShape2D_378y4")
+
+[node name="lvingRoom_to_bedroom" type="Area2D" parent="."]
+script = ExtResource("2_efgsu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvingRoom_to_bedroom"]
+position = Vector2(45, 508)
+shape = SubResource("RectangleShape2D_bxp2c")
+
+[node name="LivingRoom_to_throneRoom" type="Area2D" parent="."]
+script = ExtResource("3_378y4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LivingRoom_to_throneRoom"]
+position = Vector2(756, 436)
+shape = SubResource("RectangleShape2D_bxp2c")
+
+[node name="livingRoom_to_secretRoom" type="Area2D" parent="."]
+script = ExtResource("4_bxp2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="livingRoom_to_secretRoom"]
+position = Vector2(759, 758)
+shape = SubResource("RectangleShape2D_bxp2c")
+
+[node name="player" parent="." instance=ExtResource("5_jeppt")]
+
+[connection signal="body_entered" from="lvingRoom_to_bedroom" to="lvingRoom_to_bedroom" method="_on_body_entered"]
+[connection signal="body_exited" from="lvingRoom_to_bedroom" to="lvingRoom_to_bedroom" method="_on_body_exited"]
+[connection signal="body_entered" from="LivingRoom_to_throneRoom" to="LivingRoom_to_throneRoom" method="_on_body_entered"]
+[connection signal="body_exited" from="LivingRoom_to_throneRoom" to="LivingRoom_to_throneRoom" method="_on_body_exited"]
+[connection signal="body_entered" from="livingRoom_to_secretRoom" to="livingRoom_to_secretRoom" method="_on_body_entered"]
+[connection signal="body_exited" from="livingRoom_to_secretRoom" to="livingRoom_to_secretRoom" method="_on_body_exited"]
