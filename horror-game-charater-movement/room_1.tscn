@@ -1,0 +1,266 @@
+[gd_scene load_steps=9 format=4 uid="uid://dknin30h4pbom"]
+
+[ext_resource type="Texture2D" uid="uid://crvnxefxv4135" path="res://tiles/basictiles.png" id="1_3t5sg"]
+[ext_resource type="PackedScene" uid="uid://dor0uwelkmb2m" path="res://player.tscn" id="2_4ikea"]
+[ext_resource type="Script" uid="uid://cr8qwpgre0lii" path="res://room1_to_room0.gd" id="3_is5ow"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ikea"]
+texture = ExtResource("1_3t5sg")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/terrains_peering_bit/right_side = 0
+0:2/0/terrains_peering_bit/bottom_right_corner = 0
+0:2/0/terrains_peering_bit/bottom_side = 0
+0:2/0/terrains_peering_bit/bottom_left_corner = 0
+0:2/0/terrains_peering_bit/left_side = 0
+0:2/0/terrains_peering_bit/top_left_corner = 0
+0:2/0/terrains_peering_bit/top_side = 0
+0:2/0/terrains_peering_bit/top_right_corner = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+3:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_is5ow"]
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Floor"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_4ikea")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6hjw"]
+texture = ExtResource("1_3t5sg")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1.13167, 8, -1.3057747, 8, 8, -8, 8, -8, 0.26115608)
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+5:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1.3057747, 8, 8, -8, 8, -8, -8)
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+4:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.552635, -8, 5.7491894, -8, 5.6509132, 8, -6.338849, 8)
+5:7/0 = 0
+5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.3547688, -8, 6.7029743, -8, 6.180664, 8, -6.006563, 8)
+6:7/0 = 0
+7:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+1:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+3:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hrfef"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_e6hjw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bq48c"]
+size = Vector2(68, 162)
+
+[node name="room1" type="Node2D"]
+
+[node name="floor" type="TileMapLayer" parent="."]
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAAKAAgAAAAAAAIAAAAKAAcAAAAAAAIAAAAKAAYAAAAAAAIAAAAKAAUAAAAAAAIAAAAKAAQAAAAAAAIAAAAKAAMAAAAAAAIAAAAKAAIAAAAAAAIAAAAKAAEAAAAAAAIAAAAKAAAAAAAAAAIAAAAJAAgAAAAAAAIAAAAJAAcAAAAAAAIAAAAJAAYAAAAAAAIAAAAJAAUAAAAAAAIAAAAJAAQAAAAAAAIAAAAJAAMAAAAAAAIAAAAJAAIAAAAAAAIAAAAJAAEAAAAAAAIAAAAJAAAAAAAAAAIAAAAIAAgAAAAAAAIAAAAIAAcAAAAAAAIAAAAIAAYAAAAAAAIAAAAIAAUAAAAAAAIAAAAIAAQAAAAAAAIAAAAIAAMAAAAAAAIAAAAIAAIAAAAAAAIAAAAIAAEAAAAAAAIAAAAIAAAAAAAAAAIAAAAHAAgAAAAAAAIAAAAHAAcAAAAAAAIAAAAHAAYAAAAAAAIAAAAHAAUAAAAAAAIAAAAHAAQAAAAAAAIAAAAHAAMAAAAAAAIAAAAHAAIAAAAAAAIAAAAHAAEAAAAAAAIAAAAHAAAAAAAAAAIAAAAGAAgAAAAAAAIAAAAGAAcAAAAAAAIAAAAGAAYAAAAAAAIAAAAGAAUAAAAAAAIAAAAGAAQAAAAAAAIAAAAGAAMAAAAAAAIAAAAGAAIAAAAAAAIAAAAGAAEAAAAAAAIAAAAGAAAAAAAAAAIAAAAFAAgAAAAAAAIAAAAFAAcAAAAAAAIAAAAFAAYAAAAAAAIAAAAFAAUAAAAAAAIAAAAFAAQAAAAAAAIAAAAFAAMAAAAAAAIAAAAFAAIAAAAAAAIAAAAFAAEAAAAAAAIAAAAFAAAAAAAAAAIAAAAEAAgAAAAAAAIAAAAEAAcAAAAAAAIAAAAEAAYAAAAAAAIAAAAEAAUAAAAAAAIAAAAEAAQAAAAAAAIAAAAEAAMAAAAAAAIAAAAEAAIAAAAAAAIAAAAEAAEAAAAAAAIAAAAEAAAAAAAAAAIAAAADAAgAAAAAAAIAAAADAAcAAAAAAAIAAAADAAYAAAAAAAIAAAADAAUAAAAAAAIAAAADAAQAAAAAAAIAAAADAAMAAAAAAAIAAAADAAIAAAAAAAIAAAADAAEAAAAAAAIAAAADAAAAAAAAAAIAAAACAAgAAAAAAAIAAAACAAcAAAAAAAIAAAACAAYAAAAAAAIAAAACAAUAAAAAAAIAAAACAAQAAAAAAAIAAAACAAMAAAAAAAIAAAACAAIAAAAAAAIAAAACAAEAAAAAAAIAAAACAAAAAAAAAAIAAAABAAgAAAAAAAIAAAABAAcAAAAAAAIAAAABAAYAAAAAAAIAAAABAAUAAAAAAAIAAAABAAQAAAAAAAIAAAABAAMAAAAAAAIAAAABAAIAAAAAAAIAAAABAAEAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAgAAAAAAAIAAAAAAAcAAAAAAAIAAAAAAAYAAAAAAAIAAAAAAAUAAAAAAAIAAAAAAAQAAAAAAAIAAAAAAAMAAAAAAAIAAAAAAAIAAAAAAAIAAAAAAAEAAAAAAAIAAAAAAAAAAAAAAAIAAAA=")
+tile_set = SubResource("TileSet_is5ow")
+metadata/_edit_group_ = true
+
+[node name="objects" type="TileMapLayer" parent="."]
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAAFAAQAAAAEAAcAAAAEAAMAAAAGAAQAAAAGAAMAAAAGAAQAAAAGAAUAAAAGAAQAAAAEAAUAAAAGAAQAAAAFAAgAAAAAAAYAAAAAAAAAAAAFAAUAAAAAAAEAAAAFAAYAAAAKAAAAAAAFAAUAAAAKAAEAAAAFAAYAAAAFAAAAAAAHAAMAAAAFAAEAAAAHAAQAAAABAAAAAAADAAQAAAAJAAAAAAADAAQAAAAAAAQAAAAFAAcAAAAAAAgAAAABAAsAAAABAAgAAAABAAsAAAACAAgAAAABAAsAAAADAAgAAAABAAsAAAAEAAgAAAABAAsAAAAGAAgAAAABAAsAAAAHAAgAAAABAAsAAAAIAAgAAAABAAsAAAAJAAgAAAABAAsAAAAKAAgAAAABAAsAAAAKAAQAAAAFAAcAAAA=")
+tile_set = SubResource("TileSet_hrfef")
+
+[node name="player" parent="." instance=ExtResource("2_4ikea")]
+position = Vector2(444, 588)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_is5ow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(441, 638)
+shape = SubResource("RectangleShape2D_bq48c")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

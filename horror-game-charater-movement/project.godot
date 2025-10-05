@@ -10,14 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Horror_Game_Charater_movement"
+config/name="Horror_Game"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=800
+window/size/viewport_width=1200
+window/size/viewport_height=850
 
 [input]
 

@@ -1,42 +1,45 @@
-extends Area2D
+extends CharacterBody2D
 signal hit
-@export var speed = 250
+@export var speed = 400
 var screen_size
 
 func _ready():
 	screen_size = get_viewport_rect().size
 
 func _process(delta):
-	var velocity = Vector2.ZERO  
+	var input_velocity = Vector2.ZERO  
 	
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
+		input_velocity.x += 1
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
+		input_velocity.x -= 1
 	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
+		input_velocity.y += 1
 	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
+		input_velocity.y -= 1
 	
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
+	if input_velocity.length() > 0:
+		input_velocity = input_velocity.normalized() * speed
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
 	
-	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	velocity = input_velocity
 	
-	if velocity.x > 0:
+	move_and_slide()
+	
+	position = position.clamp(Vector2.ZERO, Vector2(800, 800))
+	
+	if input_velocity.x > 0:
 		$AnimatedSprite2D.animation = "walk_right"
 		$AnimatedSprite2D.flip_h = false
-	elif velocity.x < 0:
+	elif input_velocity.x < 0:
 		$AnimatedSprite2D.animation = "walk_left"
 		$AnimatedSprite2D.flip_h = false
-	elif velocity.y > 0:
+	elif input_velocity.y > 0:
 		$AnimatedSprite2D.animation = "walk_forward"
 		$AnimatedSprite2D.flip_v = false
-	elif velocity.y < 0:
+	elif input_velocity.y < 0:
 		$AnimatedSprite2D.animation = "walk_back"
 		$AnimatedSprite2D.flip_v = false
 
