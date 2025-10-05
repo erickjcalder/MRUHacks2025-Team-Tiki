@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2l8k8dd00iu2"]
+
+[ext_resource type="Script" uid="uid://bpknvrlkv8435" path="res://cookie.gd" id="1_4g1sd"]
+[ext_resource type="Texture2D" uid="uid://ddk8lbhf1ix2o" path="res://art/cookie.png" id="2_4g1sd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxpwv"]
+size = Vector2(38, 33.04348)
+
+[node name="Cookie" type="Area2D"]
+scale = Vector2(1.15, 1.15)
+script = ExtResource("1_4g1sd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_4g1sd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.86956567)
+shape = SubResource("RectangleShape2D_wxpwv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

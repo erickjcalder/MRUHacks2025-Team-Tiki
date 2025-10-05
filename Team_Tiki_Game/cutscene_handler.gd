@@ -6,6 +6,7 @@ var blue = Color(0, 0, 255)
 var white = Color(255, 255, 255)
 var green = Color(0, 255, 0)
 var purple = Color(255, 0, 255)
+var pink = Color(255,192,203)
 
 var SIZE_SMALL = 10
 var SIZE_MEDIUM = 21
@@ -30,7 +31,7 @@ var GotKey = [["Oh nice A conveniently placed key!", SIZE_MEDIUM, black],
 ["DIAMONDS, HEARTS", SIZE_HUGE, red],
 ["CLUBS and SPADES", SIZE_HUGE, black],
 ["I bet the person that had this made was a real high roller", SIZE_MEDIUM, black],
-["Obtained: Old Key", SIZE_HUGE, blue],
+["Obtained: Gambler's Key", SIZE_HUGE, blue],
 ["end", 1, white]]
 
 var GotPoster = [["Oh?", SIZE_MEDIUM, black],
@@ -51,18 +52,27 @@ var GotID = [["Looks like somebody dropped their wallet", SIZE_MEDIUM, black],
 ["Obtained: ID Card", SIZE_HUGE, blue],
 ["end", 1, white]]
 
-var GotCookies = [["Wow! A whole plate of chocolate chip cookies!", SIZE_MEDIUM, black],
-["I'd love to eat some but I really don't want to play league", SIZE_MEDIUM, black],
-["I'll just stuff them in my bag for later", SIZE_MEDIUM, black],
-["Obtained: Homemade Cookies", SIZE_HUGE, blue],
+var GotCookies = [["Wow! A nice big chocolate chip cookie!", SIZE_MEDIUM, black],
+["I'd love to indulge in this but I really don't want to play league", SIZE_MEDIUM, black],
+["I'll just stuff this in my bag for later", SIZE_MEDIUM, black],
+["Obtained: Homemade Cookie", SIZE_HUGE, blue],
 ["end", 1, white]]
 
 var GotGravestone = [["\"Here lies the great honourable", SIZE_MEDIUM, black],
-["Jimothy Terwilliger Huxley", SIZE_HUGE, purple],
+["Jimothy Terwilliger Huxley", SIZE_LARGE, purple],
 ["may his exploits never be forgotten\"", SIZE_MEDIUM, black],
 ["Rest in peace Jimothy...", SIZE_MEDIUM, black],
 ["...", SIZE_HUGE, black],
 ["Obtained: Jimothy's Gravestone", SIZE_HUGE, blue],
+["end", 1, white]]
+
+var ReadingNote = [["Hmmm let's see what this note has to say", SIZE_MEDIUM, black],
+["\"Hi sweetie, hope everything is moving along smoothly in your new death castle!", SIZE_MEDIUM, pink],
+["Did you enjoy the cookies I baked for you? I made another batch for your dad so if you want more you ought to come down and see us sometime.", SIZE_MEDIUM, pink],
+["Well I gotta go now, bye sweetie!!!", SIZE_MEDIUM, pink],
+["P.S. I accidentally left my dry cleaning hanging on the back of the throne, please look after it until we can come back to pik it up", SIZE_HUGE, black],
+["it's the one that makes me look lkike Mrs. Claus, you can't miss it. Okay bye :)\"", SIZE_MEDIUM, pink],
+["XOXO -Tikimom", SIZE_HUGE, pink],
 ["end", 1, white]]
 
 var TextActive = false
@@ -83,6 +93,12 @@ func SceneChanger(SceneNumber: int) -> void:
 			CurrentScript = GotPoster
 		3:
 			CurrentScript = GotDress
+		4:
+			CurrentScript = GotCookies
+		5:
+			CurrentScript = GotGravestone
+		6:
+			CurrentScript = GotID
 	TextActive = true
 	$TextBox/Text.text = CurrentScript[index][DIALOG]
 	$TextBox/Text.label_settings.set("font_size", CurrentScript[index][FONT_SIZE])

@@ -1,12 +1,17 @@
-[gd_scene load_steps=15 format=4 uid="uid://e6wv7vcao052"]
+[gd_scene load_steps=22 format=4 uid="uid://e6wv7vcao052"]
 
 [ext_resource type="Texture2D" uid="uid://c4u25hfvbfbno" path="res://background/cemetery.png" id="1_206py"]
+[ext_resource type="Script" uid="uid://b7734sbj88htw" path="res://cemetery.gd" id="1_ovaco"]
 [ext_resource type="PackedScene" uid="uid://dor0uwelkmb2m" path="res://player.tscn" id="2_i5chw"]
 [ext_resource type="Texture2D" uid="uid://coyfrn5va6rpk" path="res://tiles/cemetery.png" id="3_i5chw"]
 [ext_resource type="Texture2D" uid="uid://dk4nddiq5pcmg" path="res://tiles/grave2.png" id="4_5jdao"]
 [ext_resource type="Texture2D" uid="uid://k680yjyq7fnu" path="res://tiles/coffin.png" id="5_vt2ep"]
 [ext_resource type="Texture2D" uid="uid://bsfhfqi2icds0" path="res://tiles/grave.png" id="6_ovaco"]
 [ext_resource type="Script" uid="uid://bgck7bd3x8oms" path="res://cemetery_to_room1.gd" id="7_vt2ep"]
+[ext_resource type="PackedScene" uid="uid://cvfkp5p3orohv" path="res://CutsceneHandler.tscn" id="9_7tltb"]
+[ext_resource type="PackedScene" uid="uid://bsxkguy3x4hdk" path="res://inventory_menu.tscn" id="10_lxqmm"]
+[ext_resource type="PackedScene" uid="uid://d12xwu43a7r6v" path="res://gravestone.tscn" id="11_lxqmm"]
+[ext_resource type="Texture2D" uid="uid://r70eteku53oh" path="res://tiles/animatedcastledoors.png" id="12_gy7qp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i5chw"]
 texture = ExtResource("3_i5chw")
@@ -175,10 +180,109 @@ sources/5 = SubResource("TileSetAtlasSource_lxqmm")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5chw"]
 size = Vector2(813, 325)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tab8i"]
+texture = ExtResource("12_gy7qp")
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+9:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+23:1/0 = 0
+0:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+22:2/0 = 0
+23:2/0 = 0
+0:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+22:3/0 = 0
+23:3/0 = 0
+0:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+22:4/0 = 0
+23:4/0 = 0
+0:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+22:5/0 = 0
+23:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hosm6"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_tab8i")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5jdao"]
-size = Vector2(157, 138)
+size = Vector2(90.5, 99)
 
 [node name="cemetery" type="Node2D"]
+script = ExtResource("1_ovaco")
 
 [node name="cemetery_bg" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -196,12 +300,33 @@ tile_set = SubResource("TileSet_at0wf")
 position = Vector2(396.5, 152.5)
 shape = SubResource("RectangleShape2D_i5chw")
 
+[node name="door3" type="TileMapLayer" parent="."]
+position = Vector2(-343, -233)
+scale = Vector2(1.5, 1.5)
+tile_map_data = PackedByteArray("AAAOABwAAAAIAAIAAAAOAB0AAAAIAAMAAAAOAB4AAAAIAAQAAAAOAB8AAAAIAAUAAAAPABsAAAAJAAEAAAAPABwAAAAJAAIAAAAPAB0AAAAJAAMAAAAPAB4AAAAJAAQAAAAPAB8AAAAJAAUAAAAQABwAAAAKAAIAAAAQAB0AAAAKAAMAAAAQAB4AAAAKAAQAAAAQAB8AAAAKAAUAAAARABwAAAALAAIAAAARAB0AAAALAAMAAAARAB4AAAALAAQAAAARAB8AAAALAAUAAAA=")
+tile_set = SubResource("TileSet_hosm6")
+
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("7_vt2ep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(403.5, 733)
+position = Vector2(43.75, 483.5)
 shape = SubResource("RectangleShape2D_5jdao")
+
+[node name="Area2D2" type="Area2D" parent="."]
+script = ExtResource("7_vt2ep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(398, 712)
+shape = SubResource("RectangleShape2D_5jdao")
+
+[node name="inventory-menu" parent="." instance=ExtResource("10_lxqmm")]
+
+[node name="Gravestone" parent="." instance=ExtResource("11_lxqmm")]
+position = Vector2(566, 369.00003)
+
+[node name="CutsceneHandler" parent="." instance=ExtResource("9_7tltb")]
+visible = false
 
 [node name="player" parent="." instance=ExtResource("2_i5chw")]
 position = Vector2(400.00003, 615)
@@ -209,3 +334,6 @@ position = Vector2(400.00003, 615)
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
 [connection signal="body_shape_entered" from="Area2D" to="Area2D" method="_on_body_shape_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]
+[connection signal="body_shape_entered" from="Area2D2" to="Area2D2" method="_on_body_shape_entered"]
