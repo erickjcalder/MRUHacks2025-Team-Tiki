@@ -326,7 +326,6 @@ shape = SubResource("RectangleShape2D_5jdao")
 position = Vector2(566, 369.00003)
 
 [node name="CutsceneHandler" parent="." instance=ExtResource("9_7tltb")]
-visible = false
 
 [node name="player" parent="." instance=ExtResource("2_i5chw")]
 position = Vector2(400.00003, 615)
